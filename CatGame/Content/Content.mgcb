@@ -13,6 +13,36 @@
 
 #---------------------------------- Content ---------------------------------#
 
+#begin SFX/mixkit-domestic-cat-hungry-meow-45.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:SFX/mixkit-domestic-cat-hungry-meow-45.wav;SFX/cathungrymeow45.wav
+
+#begin SFX/mixkit-little-cat-pain-meow-87.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:SFX/mixkit-little-cat-pain-meow-87.wav;SFX/catpainmeow87.wav
+
+#begin SFX/mixkit-sweet-kitty-meow-93.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:SFX/mixkit-sweet-kitty-meow-93.wav;SFX/kittymeow93.wav
+
+#begin Songs/[No Copyright Music] Funny Cat.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:Songs/[No Copyright Music] Funny Cat.mp3;Songs/FunnyCat.mp3
+
+#begin Songs/みっちりねこマーチ - MitchiriNeko March - Cute cat characters in a marching band!.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:Songs/みっちりねこマーチ - MitchiriNeko March - Cute cat characters in a marching band!.mp3;Songs/MitchiriNekoMarch.mp3
+
 #begin Textures/CatSpriteSheet.png
 /importer:TextureImporter
 /processor:TextureProcessor

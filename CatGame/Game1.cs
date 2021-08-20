@@ -1,61 +1,71 @@
 ﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using Microsoft.Xna.Framework.Media;
 
 namespace CatGame
 {
-    public class Game1 : Game
-    {
-        private GraphicsDeviceManager _graphics;
-        private SpriteBatch _spriteBatch;
-        private Cat cat;
+	public class Game1 : Game
+	{
+		private GraphicsDeviceManager _graphics;
+		private SpriteBatch _spriteBatch;
+		private Cat cat;
+		public Game1()
+		{
+			_graphics = new GraphicsDeviceManager(this);
+			Content.RootDirectory = "Content";
+			IsMouseVisible = true;
+			cat = new Cat();
+		}
 
-        public Game1()
-        {
-            _graphics = new GraphicsDeviceManager(this);
-            Content.RootDirectory = "Content";
-            IsMouseVisible = true;
-            cat = new Cat();
-        }
+		protected override void Initialize()
+		{
+			// TODO: Add your initialization logic here
 
-        protected override void Initialize()
-        {
-            // TODO: Add your initialization logic here
+			base.Initialize();
+		}
 
-            base.Initialize();
-        }
+		protected override void LoadContent()
+		{
+			_spriteBatch = new SpriteBatch(GraphicsDevice);
 
-        protected override void LoadContent()
-        {
-            _spriteBatch = new SpriteBatch(GraphicsDevice);
-            // TODO: use this.Content to load your game content here
-            cat.LoadContent(Content);
-        }
+			GameServices.Songs.Add("song1", Content.Load<Song>("Songs\\FunnyCat"));
+			GameServices.Songs.Add("song2", Content.Load<Song>("Songs\\MitchiriNekoMarch"));
 
-        protected override void Update(GameTime gameTime)
-        {
-            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
-            {
-                Exit();
-            }
+			GameServices.SoundEffects.Add("cat1", Content.Load<SoundEffect>("SFX\\cathungrymeow45"));
+			GameServices.SoundEffects.Add("cat2", Content.Load<SoundEffect>("SFX\\catpainmeow87"));
+			GameServices.SoundEffects.Add("cat3", Content.Load<SoundEffect>("SFX\\kittymeow93"));
 
-            // TODO: Add your update logic here
-            cat.Update(gameTime);
+			cat.LoadContent(Content);
+		}
 
-            base.Update(gameTime);
-        }
+		protected override void Update(GameTime gameTime)
+		{
+			if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
+			{
+				Exit();
+			}
 
-        protected override void Draw(GameTime gameTime)
-        {
-            GraphicsDevice.Clear(Color.BlueViolet);
+			GameServices.SongPlayer.PlayNewSong("song2");
 
-            _spriteBatch.Begin(samplerState: SamplerState.PointClamp);
-            // TODO: Add your drawing code here
-            cat.Draw(_spriteBatch);
+			// TODO: Add your update logic here
+			cat.Update(gameTime);
 
-            _spriteBatch.End();
+			base.Update(gameTime);
+		}
 
-            base.Draw(gameTime);
-        }
-    }
+		protected override void Draw(GameTime gameTime)
+		{
+			GraphicsDevice.Clear(Color.BlueViolet);
+
+			_spriteBatch.Begin(samplerState: SamplerState.PointClamp);
+			// TODO: Add your drawing code here
+			cat.Draw(_spriteBatch);
+
+			_spriteBatch.End();
+
+			base.Draw(gameTime);
+		}
+	}
 }
