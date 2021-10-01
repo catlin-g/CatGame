@@ -47,7 +47,7 @@ namespace CatGame
 
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.BlueViolet);
+            GraphicsDevice.Clear(Color.Linen);
 
             _spriteBatch.Begin(samplerState: SamplerState.PointClamp);
             // TODO: Add your drawing code here
