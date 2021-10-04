@@ -41,6 +41,7 @@ namespace CatGame
 
             // TODO: Add your update logic here
             cat.Update(gameTime);
+            Window.Title = cat.currentState.GetType().ToString();
 
             base.Update(gameTime);
         }
