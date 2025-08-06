@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework;
+using CatGame.CatDetails;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
@@ -42,7 +43,6 @@ namespace CatGame
 			_graphics.ApplyChanges();
 
 			map = new int[mapTilesetWidthInTiles, mapTilesetHeightInTiles];
-			int count = 0;
 			for (var y = 0; y < mapTilesetHeightInTiles; ++y)
 			{
 				for (var x = 0; x < mapTilesetWidthInTiles; ++x)
@@ -59,7 +59,6 @@ namespace CatGame
 			_spriteBatch = new SpriteBatch(GraphicsDevice);
 
 			GameServices.Textures.Add("map", Content.Load<Texture2D>("Textures\\InteriorSpriteSheet"));
-			GameServices.Textures.Add("cat", Content.Load<Texture2D>("Textures\\CatSpriteSheet"));
 
 			GameServices.Songs.Add("song1", Content.Load<Song>("Songs\\FunnyCat"));
 			GameServices.Songs.Add("song2", Content.Load<Song>("Songs\\MitchiriNekoMarch"));
@@ -148,7 +147,6 @@ namespace CatGame
 			// draw cat
 			cat.Draw(_spriteBatch);
 
-
 			// draw tileset
 			_spriteBatch.Draw(mapTex, new Rectangle(tilesetBounds.X, 0, mapTex.Width, mapTex.Height), Color.White);
 
@@ -173,7 +171,6 @@ namespace CatGame
 						1f,
 						SpriteEffects.None,
 						0);
-
 
 					_spriteBatch.DrawRectangle(dstRect, Color.Black);
 				}

@@ -1,32 +1,11 @@
-﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using System;
 
-namespace CatGame
+namespace CatGame.CatDetails
 {
-	public enum DirectionUpDown
-	{
-		Up,
-		None,
-		Down,
-	}
-
-	public enum DirectionLeftRight
-	{
-		Left,
-		None,
-		Right,
-	}
-
-	public enum ActionState
-	{
-		Walk,
-		Sit,
-		Lie
-	}
-
 	public class Cat
 	{
 		SpriteFont font;
@@ -45,7 +24,6 @@ namespace CatGame
 		Point lyingAnimationFrame;
 
 		TimeSpan timeSitting = TimeSpan.Zero;
-
 		Point frameSize;
 
 		DirectionUpDown directionUpDownState;
@@ -55,8 +33,8 @@ namespace CatGame
 		DirectionUpDown previousDirectionUpDownState;
 		DirectionLeftRight previousDirectionLeftRightState;
 		ActionState previousActionState;
-		int previousZoomies = 1;
 
+		int previousZoomies = 1;
 		int baseSpeed;
 		int zoomieSpeed;
 
@@ -84,7 +62,9 @@ namespace CatGame
 
 		public void LoadContent(ContentManager content)
 		{
-			spriteSheet = GameServices.Textures["cat"];
+			spriteSheet = content.Load<Texture2D>("Textures\\CatSpriteSheet");
+			GameServices.Textures.Add("cat", spriteSheet);
+
 			font = GameServices.Fonts["Calibri12"];
 		}
 
@@ -115,7 +95,7 @@ namespace CatGame
 				zoomieSpeed = 1;
 				if (previousZoomies != zoomieSpeed)
 				{
-					//GameServices.SoundEffectPlayer.PlaySound("cat2");
+					GameServices.SoundEffectPlayer.PlaySound("cat2");
 				}
 			}
 
@@ -236,7 +216,7 @@ namespace CatGame
 				else if (actionState == ActionState.Lie)
 				{
 					currentAnimation.X = animationFrame * frameSize.X + lyingAnimationFrame.X;
-					currentAnimation.Y = ((frameCounter / 30) % 2) * frameSize.Y + lyingAnimationFrame.Y;
+					currentAnimation.Y = frameCounter / 30 % 2 * frameSize.Y + lyingAnimationFrame.Y;
 				}
 			}
 		}
