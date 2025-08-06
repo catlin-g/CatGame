@@ -1,8 +1,11 @@
+using CatGame.Services;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using System;
+using System.Reflection.Metadata;
 
 namespace CatGame.CatDetails
 {
@@ -24,6 +27,7 @@ namespace CatGame.CatDetails
 		Point lyingAnimationFrame;
 
 		TimeSpan timeSitting = TimeSpan.Zero;
+		TimeSpan sittingToLyingTime = TimeSpan.FromSeconds(3);
 		Point frameSize;
 
 		DirectionUpDown directionUpDownState;
@@ -64,6 +68,17 @@ namespace CatGame.CatDetails
 		{
 			spriteSheet = content.Load<Texture2D>("Textures\\CatSpriteSheet");
 			GameServices.Textures.Add("cat", spriteSheet);
+
+			GameServices.SoundEffects.Add("cat1", content.Load<SoundEffect>("SFX\\mixkit-domestic-cat-hungry-meow-45"));
+			GameServices.SoundEffects.Add("cat2", content.Load<SoundEffect>("SFX\\mixkit-little-cat-pain-meow-87"));
+			GameServices.SoundEffects.Add("cat3", content.Load<SoundEffect>("SFX\\mixkit-sweet-kitty-meow-93"));
+
+			GameServices.SoundEffects.Add("cat_mewfood", content.Load<SoundEffect>("SFX\\cat_mewfood"));
+			GameServices.SoundEffects.Add("cat_mewpurr", content.Load<SoundEffect>("SFX\\cat_mewpurr"));
+			GameServices.SoundEffects.Add("cat_mewpurr2", content.Load<SoundEffect>("SFX\\cat_mewpurr2"));
+			GameServices.SoundEffects.Add("cat_purractive_loop", content.Load<SoundEffect>("SFX\\cat_purractive_loop"));
+			GameServices.SoundEffects.Add("cat_purrsleepy_loop", content.Load<SoundEffect>("SFX\\cat_purrsleepy_loop"));
+			GameServices.SoundEffects.Add("cat_softmew", content.Load<SoundEffect>("SFX\\cat_softmew"));
 
 			font = GameServices.Fonts["Calibri12"];
 		}
@@ -137,9 +152,10 @@ namespace CatGame.CatDetails
 				actionState = ActionState.Sit;
 				timeSitting += gameTime.ElapsedGameTime;
 
-				if (timeSitting.TotalSeconds > 3) // lie down after 3 seconds
+				if (timeSitting > sittingToLyingTime) // lie down after 3 seconds
 				{
 					actionState = ActionState.Lie;
+					GameServices.SoundEffectPlayer.PlaySound("cat_purrsleepy_loop", allowOverlap: false);
 				}
 
 				if (previousActionState != actionState)

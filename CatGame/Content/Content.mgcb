@@ -27,6 +27,42 @@
 /processorParam:TextureFormat=Compressed
 /build:Fonts/Calibri8.spritefont
 
+#begin SFX/cat_mewfood.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:SFX/cat_mewfood.wav
+
+#begin SFX/cat_mewpurr.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:SFX/cat_mewpurr.wav
+
+#begin SFX/cat_mewpurr2.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:SFX/cat_mewpurr2.wav
+
+#begin SFX/cat_purractive_loop.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:SFX/cat_purractive_loop.wav
+
+#begin SFX/cat_purrsleepy_loop.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:SFX/cat_purrsleepy_loop.wav
+
+#begin SFX/cat_softmew.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:SFX/cat_softmew.wav
+
 #begin SFX/mixkit-domestic-cat-hungry-meow-45.wav
 /importer:WavImporter
 /processor:SoundEffectProcessor

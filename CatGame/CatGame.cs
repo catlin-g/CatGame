@@ -1,4 +1,5 @@
 using CatGame.CatDetails;
+using CatGame.Services;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Graphics;
@@ -63,10 +64,6 @@ namespace CatGame
 			GameServices.Songs.Add("song1", Content.Load<Song>("Songs\\FunnyCat"));
 			GameServices.Songs.Add("song2", Content.Load<Song>("Songs\\MitchiriNekoMarch"));
 
-			GameServices.SoundEffects.Add("cat1", Content.Load<SoundEffect>("SFX\\mixkit-domestic-cat-hungry-meow-45"));
-			GameServices.SoundEffects.Add("cat2", Content.Load<SoundEffect>("SFX\\mixkit-little-cat-pain-meow-87"));
-			GameServices.SoundEffects.Add("cat3", Content.Load<SoundEffect>("SFX\\mixkit-sweet-kitty-meow-93"));
-
 			GameServices.Fonts.Add("Calibri8", Content.Load<SpriteFont>("Fonts\\Calibri8"));
 			GameServices.Fonts.Add("Calibri12", Content.Load<SpriteFont>("Fonts\\Calibri12"));
 
@@ -81,6 +78,7 @@ namespace CatGame
 			}
 
 			var songToPlay = Random.Shared.Next(2) == 0 ? "song1" : "song2";
+			GameServices.SongPlayer.Volume = 0.05f;
 			GameServices.SongPlayer.PlayNewSong(songToPlay);
 
 			cat.Update(gameTime);
