@@ -4,10 +4,11 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 using MonoGame.Extended;
+using System;
 
 namespace CatGame
 {
-	public class Game1 : Game
+	public class CatGame : Game
 	{
 		private GraphicsDeviceManager _graphics;
 		private SpriteBatch _spriteBatch;
@@ -23,7 +24,7 @@ namespace CatGame
 
 		int SelectedTile = 0;
 
-		public Game1()
+		public CatGame()
 		{
 
 			_graphics = new GraphicsDeviceManager(this);
@@ -40,7 +41,6 @@ namespace CatGame
 			_graphics.PreferredBackBufferHeight = 1080;
 			_graphics.ApplyChanges();
 
-			// TODO: Add your initialization logic here
 			map = new int[mapTilesetWidthInTiles, mapTilesetHeightInTiles];
 			int count = 0;
 			for (var y = 0; y < mapTilesetHeightInTiles; ++y)
@@ -64,9 +64,9 @@ namespace CatGame
 			GameServices.Songs.Add("song1", Content.Load<Song>("Songs\\FunnyCat"));
 			GameServices.Songs.Add("song2", Content.Load<Song>("Songs\\MitchiriNekoMarch"));
 
-			GameServices.SoundEffects.Add("cat1", Content.Load<SoundEffect>("SFX\\cathungrymeow45"));
-			GameServices.SoundEffects.Add("cat2", Content.Load<SoundEffect>("SFX\\catpainmeow87"));
-			GameServices.SoundEffects.Add("cat3", Content.Load<SoundEffect>("SFX\\kittymeow93"));
+			GameServices.SoundEffects.Add("cat1", Content.Load<SoundEffect>("SFX\\mixkit-domestic-cat-hungry-meow-45"));
+			GameServices.SoundEffects.Add("cat2", Content.Load<SoundEffect>("SFX\\mixkit-little-cat-pain-meow-87"));
+			GameServices.SoundEffects.Add("cat3", Content.Load<SoundEffect>("SFX\\mixkit-sweet-kitty-meow-93"));
 
 			GameServices.Fonts.Add("Calibri8", Content.Load<SpriteFont>("Fonts\\Calibri8"));
 			GameServices.Fonts.Add("Calibri12", Content.Load<SpriteFont>("Fonts\\Calibri12"));
@@ -81,9 +81,9 @@ namespace CatGame
 				Exit();
 			}
 
-			GameServices.SongPlayer.PlayNewSong("song2");
+			var songToPlay = Random.Shared.Next(2) == 0 ? "song1" : "song2";
+			GameServices.SongPlayer.PlayNewSong(songToPlay);
 
-			// TODO: Add your update logic here
 			cat.Update(gameTime);
 
 			var mouseState = Mouse.GetState();
