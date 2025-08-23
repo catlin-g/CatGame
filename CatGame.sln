@@ -1,9 +1,16 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.31515.178
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36327.8
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CatGame", "CatGame\CatGame.csproj", "{1EBB1B19-C635-4769-A182-887A247F8617}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CatGame", "CatGame\CatGame.csproj", "{8A16AE3C-F531-44E7-9743-625F6C6E155B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionItems", "SolutionItems", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+		.gitignore = .gitignore
+		README.md = README.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +18,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{1EBB1B19-C635-4769-A182-887A247F8617}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1EBB1B19-C635-4769-A182-887A247F8617}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1EBB1B19-C635-4769-A182-887A247F8617}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1EBB1B19-C635-4769-A182-887A247F8617}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8A16AE3C-F531-44E7-9743-625F6C6E155B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8A16AE3C-F531-44E7-9743-625F6C6E155B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8A16AE3C-F531-44E7-9743-625F6C6E155B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8A16AE3C-F531-44E7-9743-625F6C6E155B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

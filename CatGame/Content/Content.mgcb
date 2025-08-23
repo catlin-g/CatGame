@@ -3,7 +3,7 @@
 
 /outputDir:bin/$(Platform)
 /intermediateDir:obj/$(Platform)
-/platform:DesktopGL
+/platform:Windows
 /config:
 /profile:Reach
 /compress:False
@@ -12,6 +12,86 @@
 
 
 #---------------------------------- Content ---------------------------------#
+
+#begin Fonts/Calibri12.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:Fonts/Calibri12.spritefont
+
+#begin Fonts/Calibri8.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:Fonts/Calibri8.spritefont
+
+#begin SFX/cat_mewfood.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:SFX/cat_mewfood.wav
+
+#begin SFX/cat_mewpurr.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:SFX/cat_mewpurr.wav
+
+#begin SFX/cat_mewpurr2.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:SFX/cat_mewpurr2.wav
+
+#begin SFX/cat_purractive_loop.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:SFX/cat_purractive_loop.wav
+
+#begin SFX/cat_purrsleepy_loop.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:SFX/cat_purrsleepy_loop.wav
+
+#begin SFX/cat_softmew.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:SFX/cat_softmew.wav
+
+#begin SFX/mixkit-domestic-cat-hungry-meow-45.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:SFX/mixkit-domestic-cat-hungry-meow-45.wav
+
+#begin SFX/mixkit-little-cat-pain-meow-87.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:SFX/mixkit-little-cat-pain-meow-87.wav
+
+#begin SFX/mixkit-sweet-kitty-meow-93.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:SFX/mixkit-sweet-kitty-meow-93.wav
+
+#begin Songs/FunnyCat.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:Songs/FunnyCat.mp3
+
+#begin Songs/MitchiriNekoMarch.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:Songs/MitchiriNekoMarch.mp3
 
 #begin Textures/CatSpriteSheet.png
 /importer:TextureImporter
@@ -36,4 +116,16 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:Textures/image.png
+
+#begin Textures/InteriorSpriteSheet.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Textures/InteriorSpriteSheet.png
 
