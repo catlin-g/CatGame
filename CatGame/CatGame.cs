@@ -1,7 +1,6 @@
 using CatGame.CatDetails;
 using CatGame.Services;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
@@ -12,19 +11,19 @@ namespace CatGame
 {
 	public class CatGame : Game
 	{
-		private GraphicsDeviceManager _graphics;
-		private SpriteBatch _spriteBatch;
-		private Cat cat;
+		readonly GraphicsDeviceManager _graphics;
+		SpriteBatch _spriteBatch;
+		readonly Cat cat;
 
 		const int tilesize = 32;
 		const int mapTilesetWidthInTiles = 24;
 		const int mapTilesetHeightInTiles = 21;
-		private int[,] map;
+		int[,] map;
 
-		Rectangle mapBounds = new Rectangle(0, 0, mapTilesetWidthInTiles * tilesize, mapTilesetHeightInTiles * tilesize);
-		Rectangle tilesetBounds = new Rectangle(mapTilesetWidthInTiles * tilesize + 32, 0, mapTilesetWidthInTiles * tilesize, mapTilesetHeightInTiles * tilesize);
+		Rectangle mapBounds = new(0, 0, mapTilesetWidthInTiles * tilesize, mapTilesetHeightInTiles * tilesize);
+		Rectangle tilesetBounds = new((mapTilesetWidthInTiles * tilesize) + 32, 0, mapTilesetWidthInTiles * tilesize, mapTilesetHeightInTiles * tilesize);
 
-		int SelectedTile = 0;
+		int SelectedTile;
 
 		public CatGame()
 		{
@@ -98,7 +97,7 @@ namespace CatGame
 				if (tilesetBounds.Contains(mouseState.Position))
 				{
 					var tilesetXY = new Point((mouseState.Position.X - tilesetBounds.X) / tilesize, (mouseState.Position.Y - tilesetBounds.Y) / tilesize);
-					SelectedTile = (int)(tilesetXY.X) + (int)(tilesetXY.Y * mapTilesetWidthInTiles);
+					SelectedTile = tilesetXY.X + (tilesetXY.Y * mapTilesetWidthInTiles);
 				}
 			}
 
@@ -174,7 +173,7 @@ namespace CatGame
 				}
 			}
 
-			var srcRect2 = new Rectangle((SelectedTile / mapTilesetWidthInTiles) * tilesize, (SelectedTile % mapTilesetWidthInTiles) * tilesize, tilesize, tilesize);
+			var srcRect2 = new Rectangle(SelectedTile / mapTilesetWidthInTiles * tilesize, SelectedTile % mapTilesetWidthInTiles * tilesize, tilesize, tilesize);
 			var dstRect2 = new Rectangle(0, mapBounds.Height + tilesize, tilesize, tilesize);
 			_spriteBatch.Draw(mapTex, dstRect2, srcRect2, Color.White);
 

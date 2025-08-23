@@ -5,7 +5,7 @@ namespace CatGame.Services
 {
 	public class SoundEffectPlayer
 	{
-		Dictionary<string, SoundEffectInstance> Playing = [];
+		readonly Dictionary<string, SoundEffectInstance> Playing = [];
 
 		public void PlaySound(string soundName, float volume = 0.2f, float pitch = 0f, float pan = 0.5f, bool allowOverlap = true)
 		{

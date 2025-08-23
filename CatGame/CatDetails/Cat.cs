@@ -5,7 +5,6 @@ using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using System;
-using System.Reflection.Metadata;
 
 namespace CatGame.CatDetails
 {
@@ -27,7 +26,7 @@ namespace CatGame.CatDetails
 		Point lyingAnimationFrame;
 
 		TimeSpan timeSitting = TimeSpan.Zero;
-		TimeSpan sittingToLyingTime = TimeSpan.FromSeconds(3);
+		readonly TimeSpan sittingToLyingTime = TimeSpan.FromSeconds(3);
 		Point frameSize;
 
 		DirectionUpDown directionUpDownState;
@@ -39,7 +38,7 @@ namespace CatGame.CatDetails
 		ActionState previousActionState;
 
 		int previousZoomies = 1;
-		int baseSpeed;
+		readonly int baseSpeed;
 		int zoomieSpeed;
 
 		public Cat()
@@ -180,14 +179,14 @@ namespace CatGame.CatDetails
 
 				if (actionState == ActionState.Sit)
 				{
-					currentAnimation.X = animationFrame * frameSize.X + sittingAnimationFrame.X;
+					currentAnimation.X = (animationFrame * frameSize.X) + sittingAnimationFrame.X;
 					currentAnimation.Y = sittingAnimationFrame.Y;
 				}
 				else if (actionState == ActionState.Walk)
 				{
 					if (directionUpDownState == DirectionUpDown.Up)
 					{
-						currentAnimation.X = animationFrame * frameSize.X + walkingUpAnimationFrame.X;
+						currentAnimation.X = (animationFrame * frameSize.X) + walkingUpAnimationFrame.X;
 						currentAnimation.Y = walkingUpAnimationFrame.Y;
 
 						if (directionLeftRightState == DirectionLeftRight.Left)
@@ -195,16 +194,16 @@ namespace CatGame.CatDetails
 							currentAnimation.X += frameSize.X * 3;
 							currentAnimation.Y -= frameSize.Y * 2;
 						}
+
 						if (directionLeftRightState == DirectionLeftRight.Right)
 						{
 							currentAnimation.X += frameSize.X * 3;
 							currentAnimation.Y -= frameSize.Y * 0;
 						}
-
 					}
 					else if (directionUpDownState == DirectionUpDown.Down)
 					{
-						currentAnimation.X = animationFrame * frameSize.X + walkingDownAnimationFrame.X;
+						currentAnimation.X = (animationFrame * frameSize.X) + walkingDownAnimationFrame.X;
 						currentAnimation.Y = walkingDownAnimationFrame.Y;
 
 						if (directionLeftRightState == DirectionLeftRight.Left)
@@ -212,6 +211,7 @@ namespace CatGame.CatDetails
 							currentAnimation.X += frameSize.X * 3;
 							currentAnimation.Y -= frameSize.Y * 0;
 						}
+
 						if (directionLeftRightState == DirectionLeftRight.Right)
 						{
 							currentAnimation.X += frameSize.X * 3;
@@ -220,19 +220,19 @@ namespace CatGame.CatDetails
 					}
 					else if (directionLeftRightState == DirectionLeftRight.Left)
 					{
-						currentAnimation.X = animationFrame * frameSize.X + walkingLeftAnimationFrame.X;
+						currentAnimation.X = (animationFrame * frameSize.X) + walkingLeftAnimationFrame.X;
 						currentAnimation.Y = walkingLeftAnimationFrame.Y;
 					}
 					else if (directionLeftRightState == DirectionLeftRight.Right)
 					{
-						currentAnimation.X = animationFrame * frameSize.X + walkingRightAnimationFrame.X;
+						currentAnimation.X = (animationFrame * frameSize.X) + walkingRightAnimationFrame.X;
 						currentAnimation.Y = walkingRightAnimationFrame.Y;
 					}
 				}
 				else if (actionState == ActionState.Lie)
 				{
-					currentAnimation.X = animationFrame * frameSize.X + lyingAnimationFrame.X;
-					currentAnimation.Y = frameCounter / 30 % 2 * frameSize.Y + lyingAnimationFrame.Y;
+					currentAnimation.X = (animationFrame * frameSize.X) + lyingAnimationFrame.X;
+					currentAnimation.Y = (frameCounter / 30 % 2 * frameSize.Y) + lyingAnimationFrame.Y;
 				}
 			}
 		}
